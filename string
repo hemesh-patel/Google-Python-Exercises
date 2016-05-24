@@ -28,6 +28,31 @@ fix_first('babble')
 def mix_up(a, b):
     a_first = a[0:2]
     b_first = b[0:2]
-    print(b_first+a[2:], ' ', a_first+b[2:])
+    print(b_first+a[2:], '', a_first+b[2:])
 mix_up('mix', 'pod')
 mix_up('dog', 'dinner')
+
+#Exercise E:
+def verbing(s):
+    if len(s) < 3:
+        print(s)
+    elif s[-3:] == 'ing':
+        print(s+'ly')
+    else:
+        print(s+'ing')
+verbing('to')
+verbing('surprising')
+verbing('switch')
+
+#Exercise F:
+def front_back(a, b):
+    if len(a) % 2 != 0:
+        f_a = int((len(a) / 2) + .5)
+    else:
+        f_a = int(len(a) / 2)
+    if len(b) % 2 != 0:
+        f_b = int((len(b) / 2) + .5)
+    else:
+        f_b = int(len(b) / 2)
+    print(a[:f_a]+b[:f_b]+a[f_a+1:]+b[f_b:])
+front_back('abcd', 'efghi')
