@@ -1,0 +1,33 @@
+#Exercise A:
+def dounts(count):
+    st = 'Number of donuts: '
+    if count < 10:
+        print(st + str(count))
+    else:
+        print(st + 'many')
+dounts(5)
+dounts(23)
+
+#Exercise B:
+def both_ends(s):
+    if len(s) < 1:
+        print(s)
+    else:
+        print(s[0:2]+s[-2:])
+both_ends('spring')
+
+#Exercise C:
+def fix_first(s):
+    x = s
+    f = x[0]
+    y = x.replace(f, '*')
+    print(s[0]+y[1:])
+fix_first('babble')
+
+#Exercise D:
+def mix_up(a, b):
+    a_first = a[0:2]
+    b_first = b[0:2]
+    print(b_first+a[2:], ' ', a_first+b[2:])
+mix_up('mix', 'pod')
+mix_up('dog', 'dinner')
