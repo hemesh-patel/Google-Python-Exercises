@@ -1,0 +1,28 @@
+import operator
+
+
+def print_words():
+    d = {}
+    fhand = open(r'C:\Users\Hemesh\PycharmProjects\untitled\google-python-exercises\basic\alice.txt', 'r')
+    for line in fhand:
+        word = line.strip().split()
+        for words in word:
+            words = words.lower()
+            d[words] = d.get(words, 0) + 1
+    fhand.close()
+    return d
+print(print_words())
+
+
+def print_top():
+    d = {}
+    fhand = open(r'C:\Users\Hemesh\PycharmProjects\untitled\google-python-exercises\basic\alice.txt', 'r')
+    for line in fhand:
+        word = line.strip().split()
+        for words in word:
+            words = words.lower()
+            d[words] = d.get(words, 0) + 1
+    lst = (sorted(d.items(), key=operator.itemgetter(1), reverse=True)[0:20])
+    for k, v in lst:
+        print(k + ': ' + str(v))
+print_top()
