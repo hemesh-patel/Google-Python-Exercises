@@ -1,0 +1,34 @@
+import re
+import operator
+import os
+
+def extract_names(f):
+    location = os.path.join(r'C:\Users\Hemesh\PycharmProjects\untitled\google-python-exercises\babynames', f)
+    file = open(location)
+    text = file.read()
+    file.close()
+    year = re.findall('in ([0-9][0-9][0-9][0-9])</',text)[0]
+    rank_name = re.findall('<td>(.+)</td>', text)
+    dic = dict()
+    for item in rank_name:
+        items = item.split('<') #list of all the names and ranks
+        rank = items[0]
+        male_name = items[2][3:]
+        female_name = items[4][3:]
+        dic[male_name] = rank
+        dic[female_name] = rank
+    print(year)
+    for i, j in sorted(dic.items(), key=operator.itemgetter(0)):
+        print(i, j)
+
+
+extract_names('baby1990.html')
+extract_names('baby1992.html')
+extract_names('baby1994.html')
+extract_names('baby1996.html')
+extract_names('baby1998.html')
+extract_names('baby2000.html')
+extract_names('baby2002.html')
+extract_names('baby2004.html')
+extract_names('baby2006.html')
+extract_names('baby2008.html')
